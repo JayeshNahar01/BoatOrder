@@ -1,0 +1,48 @@
+﻿
+@model DataLayer.Users
+@{
+    ViewData["Title"] = "LoginPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ 
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6">
+
+            <h2> Please Login!!! </h2>
+            @*<form asp-controller="Customer" asp-action="LoginPage?ReturnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)" method="post">*@
+            <form asp-controller="Customer" asp-action="LoginPage" method="post">
+
+                <div><label asp-for="EmailID"></label></div>
+                <div><input asp-for="EmailID" type="email" class="form-control" /></div>
+                <div><span asp-validation-for="EmailID" class="text-danger"></span></div>
+
+                <div><label asp-for="Password"></label></div>
+                <div><input asp-for="Password" type="password" class="form-control" /></div>
+                <div><span asp-validation-for="Password" class="text-danger"></span></div>
+
+                <div>
+                    <input type="submit" value="Login" class="btn btn-success mt-3" />
+                    <span class="float-end"> New Customer? <a asp-controller="Customer" asp-action="AddCustomer"> Register </a> </span>
+                </div>
+
+                <div class="text-danger">
+                    @ViewBag.WrongPass
+                </div>
+
+                <div class="text-danger">
+                    @ViewBag.WrongEmailPass
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+   
+</div>
+
+

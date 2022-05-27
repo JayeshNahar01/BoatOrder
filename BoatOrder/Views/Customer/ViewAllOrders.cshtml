@@ -1,0 +1,47 @@
+﻿@model DataLayer.Customer;
+@{
+    ViewData["Title"] = "ViewAllOrders";
+    Layout = "~/Views/Customer/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    <p> <b> View All Orders </b>  </p>
+    <table class="table table-striped table-dark p-lg-5">
+        <thead class="p-5">
+
+
+            <tr>
+                <th> @Html.DisplayName("Customer ID")</th>
+                <th> @Html.DisplayName("Items")</th>
+                <th> @Html.DisplayName("Order Date")</th>
+                <th> @Html.DisplayName("Shipment Date")</th>
+                <th> @Html.DisplayName("Delete Order")</th>
+
+            </tr>
+        </thead>
+
+
+        @foreach (var order in Model)
+        {
+            <tbody>
+                <tr>
+
+                    @*<td> @OrderNum </td>*@
+                    <td>@Html.DisplayFor(m => order.CustomerID)</td>
+                    <td>@Html.DisplayFor(m => order.Items)</td>
+                    <td> @Html.DisplayFor(m => order.OrderDate)</td>
+                    <td> @Html.DisplayFor(m => order.ShipmentDate)</td>
+                    <td>  @Html.ActionLink("Delete", "DeleteOrder", "Owner", new { orderID = order.ID }, new { @class = "btn btn-danger" }) </td>
+
+                </tr>
+            </tbody>
+
+        }
+    </table>
+
+    @*@Html.PagedListPager(Model, page => Url.Action("DisplayOrderList", new  { page}))*@
+
+
+</div>
+

@@ -1,0 +1,30 @@
+﻿
+@model DataLayer.Customer
+@{
+    ViewData["Title"] = "OwnerloggedIn";
+    Layout = "~/Views/Customer/Shared/_Layout.cshtml";
+}
+
+
+
+    <h2>
+        Welcome @Model.EmailID
+    </h2>
+
+    <div class="container">
+      
+        <div class="row">
+            <div class="col-sm-9">
+                @Html.ActionLink("View All Orders", "ViewAllOrders", "Owner", null, new { @class = "btn btn-danger" })
+            </div>
+           
+        </div>
+    </div>
+
+
+
+
+@*<p class="text-danger"> @ViewBag.OrderPlacemsg </p>*@
+
+
+

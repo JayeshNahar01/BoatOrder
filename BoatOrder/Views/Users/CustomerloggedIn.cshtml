@@ -1,0 +1,32 @@
+﻿
+@model DataLayer.Users
+@{
+    ViewData["Title"] = "CustomerloggedIn";
+    Layout = "~/Views/Customer/Shared/_Layout.cshtml";
+}
+
+
+
+    <h2>
+        Welcome @Model.Name
+    </h2>
+
+    <div class="container">
+      
+        <div class="row">
+            <div class="col-sm-9">
+                @Html.ActionLink("Order Now", "AddOrder", "Order", new { CustomerID = Model.ID}, new { @class = "btn btn-danger" })
+            </div>
+            <div class="col-sm-3">
+                @Html.ActionLink("Your Orders", "DisplayOrderList", "Order", new  {id = Model.ID }, new { @class = "btn btn-success" })
+            </div>
+        </div>
+    </div>
+
+
+
+
+@*<p class="text-danger"> @ViewBag.OrderPlacemsg </p>*@
+
+
+

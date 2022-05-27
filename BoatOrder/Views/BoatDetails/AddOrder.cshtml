@@ -1,0 +1,34 @@
+﻿@model DataLayer.BoatDetails
+@{
+    ViewData["Title"] = "AddOrder";
+    Layout = "~/Views/User/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="BoatDetails" asp-action="AddOrder" method="post">
+
+
+
+    <div><label asp-for="Boat"> Order Date: </label></div>
+    <div><input asp-for="OrderDate" type="datetime" value="@ViewBag.OrderDate"  readonly="readonly" class="form-control" /></div>
+    <div><span asp-validation-for="OrderDate" class="text-danger"></span></div>
+
+    <div><label asp-for="Items"> Enter Items: </label></div>
+    <div><input asp-for="Items" class="form-control" /></div>
+    <div><span asp-validation-for="Items" class="text-danger"></span></div>
+
+    <div><label asp-for="ShipmentDate"> Expected Shipment Date: </label></div>
+    <div><input asp-for="ShipmentDate" type="datetime" value="@ViewBag.ShipmentDate" readonly="readonly" class="form-control" /></div>
+    <div><span asp-validation-for="ShipmentDate" class="text-danger"></span></div>
+
+
+    @*<div><label asp-for="CustomerID"> Enter your ID: </label></div>*@
+    <div><input asp-for="CustomerID" value="@ViewBag.CustomerID" hidden class="form-control" /></div>
+    @*<div><span asp-validation-for="CustomerID" class="text-danger"></span></div>*@
+
+
+
+    <div><input type="submit" value="Confirm Order" class="btn btn-success mt-3 font-monospace" /></div>
+</form>
+
+
+
